@@ -43,7 +43,7 @@
                      :style="{height:menu.subMenuVisible? (menu.subMeuns.length*44+'px'):(0+'px')}"
                 >
                   <div  v-for="(sub,subIndex) in menu.subMeuns" class="sub-menu-item"
-                        @click="gotoTargetPageBySub(sub)"
+                        @click.stop="gotoTargetPageBySub(sub)"
                         :style="{opacity:menu.subMenuVisible? (1):(0),display:menu.subMenuVisible?(''):('none')}"
                   >
                     <p>{{ t(sub.name)}}</p>
@@ -128,7 +128,7 @@
             >
               <div :style="{opacity: drawerMenu.isExpand?'1':'0',display:drawerMenu.isExpand?'':'none',height:drawerMenu.isExpand?'40px':'0px'}"
                    v-for="( sub , subIndex) in drawerMenu.subMeuns" class="drawer-sub-menu-item"
-                   @click="gotoTargetPageBySub(sub)"
+                   @click.stop="gotoTargetPageBySub(sub)"
               >
                 <p>{{t(sub.name)}}</p>
               </div>
